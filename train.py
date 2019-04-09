@@ -61,6 +61,7 @@ parser.add_argument('--lambda_noise', default=1000.0, type=float,
 parser.add_argument('--noise', default=10, type=int,
                     help='range of noise for popping reduction')
 parser.add_argument('--noisecount', default=0, type=int,
+                    help='number of pixels to modify with noise')
 parser.add_argument('--epoch', '-e', default=2, type=int)
 parser.add_argument('--lr', '-l', default=1e-3, type=float)
 parser.add_argument('--checkpoint', '-c', default=0, type=int)

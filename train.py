@@ -2,6 +2,7 @@ from __future__ import print_function, division
 import numpy as np
 import os, re
 import argparse
+import random
 from PIL import Image
 
 from chainer import cuda, Variable, optimizers, serializers

@@ -5,7 +5,8 @@ echo "input frame directory: $1"
 echo "output frame directory: $2"
 echo "model path: $3"
 
-for f in $1/*.jpg
+#for f in $1/*.jpg
+for f in $1/*
 	do
 		filename=$(basename $f)
 		filename="styled-$filename"

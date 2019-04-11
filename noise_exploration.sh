@@ -33,7 +33,7 @@ do
 	for noise_count_percent in 0.005 0.01 0.015 0.02
 	do	
 		#compute how many pixels for this percentage of the total pixels
-		noise_count=$(echo "print int(round($nPixels * $noise_count_percent))" | python)
+		noise_count=$(echo "print(int(round($nPixels * $noise_count_percent)))" | python)
 
 		# TYLER!
 			# the line below is where we specify what noise_range values we want to sweep through

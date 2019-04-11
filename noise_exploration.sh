@@ -44,7 +44,7 @@ do
 			log_name=$(echo "$style_image_name-lambda_noise-$lambda_noise-noise_count-$noise_count-noise_range-$noise_range.log")
 			
 			echo "now training on style image $style_image_filename, with lambda_noise=$lambda_noise, noise_count=$noise_count, noise_range=$noise_range"
-			python train.py -o $model_name -d ../../train2014 -g 0 -s $style_image --lambda_noise $lambda_noise --noise_count $noise_count --noise $noise_range >> $log_name 2>&1
+			python train.py -o $model_name -d ../../train2014 -g 0 -s $style_image --lambda_noise $lambda_noise --noisecount $noise_count --noise $noise_range >> $log_name 2>&1
 			
 			#after we're done, move the models into a folder
 			#touch $(echo "$model_name.model")

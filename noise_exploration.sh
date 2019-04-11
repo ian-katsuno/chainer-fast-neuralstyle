@@ -13,6 +13,8 @@ height=$3
 #process the arguments
 style_image_filename=$(basename $style_image)
 style_image_name=$(echo "$style_image_filename" | cut -f 1 -d '.')
+batch_model_directory=$(echo "models/$style_image_name-batch")
+mkdir $batch_model_directory
 let "nPixels = $width * $height"
 
 #print our computed values
@@ -41,9 +43,9 @@ do
 		for noise_range in 10 20 40 80
 		do
 			model_name=$(echo "$style_image_name-lambda_noise-$lambda_noise-noise_count-$noise_count-noise_range-$noise_range")
-			mkdir $(echo "models/$model_name")
-			model_path=$(echo "models/$model_name/$model_name")
-			log_path=$(echo "models/$model_name/$style_image_name-lambda_noise-$lambda_noise-noise_count-$noise_count-noise_range-$noise_range.log")
+			mkdir $(echo "$batch_model_directory/$model_name")
+			model_path=$(echo "$batch_model_directory/$model_name/$model_name")
+			log_path=$(echo "$batch_model_directory/$model_name/$style_image_name-lambda_noise-$lambda_noise-noise_count-$noise_count-noise_range-$noise_range.log")
 			
 			echo "now training on style image $style_image_filename, with lambda_noise=$lambda_noise, noise_count=$noise_count, noise_range=$noise_range"
 			python train.py -o $model_path -d ../../train2014 -g 0 -s $style_image --lambda_noise $lambda_noise --noisecount $noise_count --noise $noise_range >> $log_path 2>&1
